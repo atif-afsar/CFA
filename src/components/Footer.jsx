@@ -32,7 +32,7 @@ export default function Footer() {
               © 2026 Coaching Federation of Aligarh (CFA). All Rights Reserved.
           </p>
           <div className="flex gap-5">
-            <a className="text-on-primary/70 hover:text-secondary-fixed transition-transform active:scale-95 p-2" href="mailto:info@cfaaligarh.org" aria-label="Email">
+            <a className="text-on-primary/70 hover:text-secondary-fixed transition-transform active:scale-95 p-2" href="mailto:cfaofficialin@gmail.com" aria-label="Email">
               <span className="material-symbols-outlined">alternate_email</span>
             </a>
           </div>

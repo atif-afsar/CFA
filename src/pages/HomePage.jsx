@@ -1,4 +1,14 @@
+import { useState } from "react";
 import AnimateIn from "../components/AnimateIn";
+import { submitMembershipApplication } from "../utils/submitMembershipForm";
+
+const INITIAL_FORM = {
+  principalName: "",
+  instituteName: "",
+  mobile: "",
+  email: "",
+  message: "",
+};
 
 const OBJECTIVES = [
   { icon: "diversity_3", title: "Unity Among Institutes", text: "Fostering a collaborative ecosystem where competition is healthy and communication is transparent between all member centers." },
@@ -37,9 +47,28 @@ const EVENTS = [
 ];
 
 export default function HomePage() {
-  const handleSubmit = (e) => {
+  const [form, setForm] = useState(INITIAL_FORM);
+  const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const updateField = (field) => (e) => {
+    setForm((prev) => ({ ...prev, [field]: e.target.value }));
+    if (status === "error") setStatus("idle");
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Your application has been submitted to the Executive Council. We will contact you shortly.");
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      await submitMembershipApplication(form);
+      setStatus("success");
+      setForm(INITIAL_FORM);
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(err.message || "Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -244,32 +273,95 @@ export default function HomePage() {
                 <h3 className="font-headline-md text-xl md:text-headline-md mb-2 font-semibold">Join the Federation Today</h3>
                 <p className="text-on-primary-container mb-6 md:mb-8 text-sm md:text-base">Establish your institute as a certified member of the official body.</p>
                 <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                  {status === "success" && (
+                    <div className="rounded-lg border border-secondary/40 bg-secondary-container/20 px-4 py-3 text-sm text-on-primary">
+                      Your application has been sent to the Executive Council. We will contact you shortly.
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="rounded-lg border border-error/40 bg-error-container/20 px-4 py-3 text-sm text-on-primary">
+                      {errorMessage}
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                     <div className="flex flex-col gap-1.5">
-                      <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide">Name of Principal/Owner</label>
-                      <input className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base" type="text" autoComplete="name" />
+                      <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide" htmlFor="principalName">Name of Principal/Owner</label>
+                      <input
+                        id="principalName"
+                        name="principalName"
+                        className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base"
+                        type="text"
+                        autoComplete="name"
+                        required
+                        value={form.principalName}
+                        onChange={updateField("principalName")}
+                        disabled={status === "submitting"}
+                      />
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide">Institute Name</label>
-                      <input className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base" type="text" />
+                      <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide" htmlFor="instituteName">Institute Name</label>
+                      <input
+                        id="instituteName"
+                        name="instituteName"
+                        className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base"
+                        type="text"
+                        required
+                        value={form.instituteName}
+                        onChange={updateField("instituteName")}
+                        disabled={status === "submitting"}
+                      />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                     <div className="flex flex-col gap-1.5">
-                      <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide">Mobile Number</label>
-                      <input className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base" type="tel" inputMode="tel" autoComplete="tel" />
+                      <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide" htmlFor="mobile">Mobile Number</label>
+                      <input
+                        id="mobile"
+                        name="mobile"
+                        className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base"
+                        type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
+                        required
+                        value={form.mobile}
+                        onChange={updateField("mobile")}
+                        disabled={status === "submitting"}
+                      />
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide">Email Address</label>
-                      <input className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base" type="email" inputMode="email" autoComplete="email" />
+                      <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide" htmlFor="email">Email Address</label>
+                      <input
+                        id="email"
+                        name="email"
+                        className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base"
+                        type="email"
+                        inputMode="email"
+                        autoComplete="email"
+                        required
+                        value={form.email}
+                        onChange={updateField("email")}
+                        disabled={status === "submitting"}
+                      />
                     </div>
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide">Message / Inquiry</label>
-                    <textarea className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base resize-none" rows={4} />
+                    <label className="font-label-sm text-[11px] md:text-label-sm uppercase text-on-primary-container tracking-wide" htmlFor="message">Message / Inquiry</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      className="bg-primary-container border border-outline text-white p-3 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none text-base resize-none"
+                      rows={4}
+                      value={form.message}
+                      onChange={updateField("message")}
+                      disabled={status === "submitting"}
+                    />
                   </div>
-                  <button className="w-full py-3.5 md:py-4 btn-primary btn-touch rounded-lg md:rounded font-bold uppercase tracking-widest text-primary text-sm" type="submit">
-                    Submit Application
+                  <button
+                    className="w-full py-3.5 md:py-4 btn-primary btn-touch rounded-lg md:rounded font-bold uppercase tracking-widest text-primary text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                    type="submit"
+                    disabled={status === "submitting"}
+                  >
+                    {status === "submitting" ? "Sending…" : "Submit Application"}
                   </button>
                 </form>
               </div>

@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
       <h2>Your Rights</h2>
       <p>
         You may request access to, correction of, or deletion of your personal data by contacting the CFA
-        Secretariat at <a href="mailto:info@cfaaligarh.org">info@cfaaligarh.org</a>.
+        Secretariat at <a href="mailto:cfaofficialin@gmail.com">cfaofficialin@gmail.com</a>.
       </p>
 
       <h2>Contact</h2>

@@ -11,7 +11,7 @@ export default function LegalNotice() {
         <strong>Registered Name:</strong> Coaching Federation of Aligarh (CFA)<br />
         <strong>Location:</strong> Aligarh, Uttar Pradesh, India<br />
         <strong>Founded:</strong> 2026<br />
-        <strong>Contact:</strong> <a href="mailto:info@cfaaligarh.org">info@cfaaligarh.org</a>
+        <strong>Contact:</strong> <a href="mailto:cfaofficialin@gmail.com">cfaofficialin@gmail.com</a>
       </p>
 
       <h2>Disclaimer</h2>
