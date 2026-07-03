@@ -1,0 +1,29 @@
+# Dependencies (install with npm install — never commit)
+node_modules/
+
+# Production build (regenerate with npm run build)
+dist/
+dist-ssr/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Local editor / MCP config
+.cursor/
+.vscode/
+*.local
+
+# Stitch design cache (images live in public/images)
+stitch-reference/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
