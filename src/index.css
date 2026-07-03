@@ -233,6 +233,12 @@ body {
   animation: float-gentle 4s ease-in-out infinite;
 }
 
+@media (max-width: 767px) {
+  .seal-float {
+    animation: none;
+  }
+}
+
 .mobile-menu-backdrop {
   animation: fade-in 0.25s ease-out both;
 }
@@ -328,32 +334,45 @@ body {
 
 .hero-glow {
   position: absolute;
-  top: 0;
+  top: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(100%, 320px);
-  height: 220px;
-  background: radial-gradient(ellipse at center, rgba(254, 210, 85, 0.18) 0%, transparent 70%);
+  width: min(100%, 16rem);
+  height: 16rem;
+  background: radial-gradient(ellipse at center, rgba(254, 210, 85, 0.2) 0%, transparent 68%);
   pointer-events: none;
+}
+
+.hero-seal-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.5rem;
+  height: 10.5rem;
+  margin: 0 auto 0.75rem;
 }
 
 .hero-seal {
   display: block;
-  width: 11rem;
-  height: auto;
-  max-width: 90vw;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  object-position: center;
 }
 
 @media (min-width: 640px) {
-  .hero-seal {
-    width: 14rem;
+  .hero-seal-wrap {
+    width: 13rem;
+    height: 13rem;
+    margin-bottom: 1rem;
   }
 }
 
 @media (min-width: 768px) {
-  .hero-seal {
-    width: 18rem;
+  .hero-seal-wrap {
+    width: 16rem;
+    height: 16rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -458,12 +477,6 @@ body {
     padding: 0.875rem 1.5rem;
     font-size: 0.875rem;
     letter-spacing: 0.1em;
-  }
-}
-
-@media (max-width: 767px) {
-  .seal-float {
-    animation: none;
   }
 }
 

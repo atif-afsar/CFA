@@ -85,8 +85,8 @@ export default function HomePage() {
             <span className="hero-badge-dot" aria-hidden="true" />
             Official Federation · Founded 2026 · Aligarh
           </div>
-          <div className="hero-animate mb-3 sm:mb-4 flex justify-center">
-            <img alt="CFA Official Seal" className="hero-seal seal-float" src="/images/seal-hero.png" />
+          <div className="hero-animate hero-seal-wrap seal-float">
+            <img alt="CFA Official Seal" className="hero-seal" src="/images/seal-hero.png" />
           </div>
           <h1 className="hero-animate hero-animate-delay-1 hero-title text-primary mb-2.5 sm:mb-4 font-bold px-0.5">
             Uniting Coaching Institutes
