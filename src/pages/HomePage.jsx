@@ -35,10 +35,10 @@ const STEPS = [
 
 const LEADERS = [
   { name: "Vineet Sharma Sir", role: "President", image: "/images/vineet-sharma.png", bio: "Leading CFA's vision and representing coaching institutes of Aligarh with dedication and integrity." },
-  { name: "Nawab Saquib Ibrahim", role: "Secretary", image: "/images/nawab-saquib-ibrahim.png", bio: "Managing federation operations, communications, and day-to-day coordination among member institutes." },
-  { name: "Yasir Ali", role: "Treasurer", image: "/images/yasir-ali.png", bio: "Overseeing financial stewardship, membership records, and transparent accounting for the federation." },
+  { name: "Nawab Saquib Ibrahim Sir", role: "Secretary", image: "/images/nawab-saquib-ibrahim.png", bio: "Managing federation operations, communications, and day-to-day coordination among member institutes." },
+  { name: "Yasir Ali Sir", role: "Treasurer", image: "/images/yasir-ali.png", bio: "Overseeing financial stewardship, membership records, and transparent accounting for the federation." },
   { name: "Vipresh Sharma Sir", role: "Vice President", image: "/images/vipresh-sharma.png", bio: "Supporting strategic initiatives and strengthening collaboration across Aligarh's coaching community." },
-  { name: "Lokesh Chaudhary", role: "Joint Secretary", image: "/images/lokesh-chaudhary.png", bio: "Assisting secretarial functions and fostering engagement between members and the executive council." },
+  { name: "Lokesh Chaudhary Sir", role: "Joint Secretary", image: "/images/lokesh-chaudhary.png", bio: "Assisting secretarial functions and fostering engagement between members and the executive council." },
 ];
 
 const EVENTS = [
