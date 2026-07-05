@@ -63,7 +63,7 @@ export default function HomePage() {
             Protecting rights, promoting ethical standards, and fostering unity among educators in Aligarh, U.P.
           </p>
           <div className="hero-animate hero-animate-delay-3 hero-actions-mobile justify-center">
-            <a className="btn-primary btn-touch rounded-lg sm:rounded font-bold uppercase shadow-md" href="#membership">
+            <a className="btn-primary btn-touch rounded-lg sm:rounded font-bold uppercase shadow-md" href="#membership-form">
               <span className="sm:hidden">Join CFA</span>
               <span className="hidden sm:inline">Become a Member</span>
             </a>
@@ -155,7 +155,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <div className="mt-6 md:mt-10">
-                  <a className="w-full md:w-auto inline-flex justify-center px-8 py-3.5 btn-primary btn-touch rounded-lg md:rounded font-bold uppercase tracking-widest text-sm" href="#contact">
+                  <a className="w-full md:w-auto inline-flex justify-center px-8 py-3.5 btn-primary btn-touch rounded-lg md:rounded font-bold uppercase tracking-widest text-sm" href="#membership-form">
                     Start Application
                   </a>
                 </div>
@@ -236,16 +236,36 @@ export default function HomePage() {
             </AnimateIn>
 
             <AnimateIn delay={120}>
-              <div className="bg-primary p-4 sm:p-5 md:p-6 rounded-xl shadow-2xl text-on-primary">
-                <h3 className="font-headline-md text-lg md:text-xl mb-1.5 font-semibold">Join the Federation Today</h3>
-                <p className="text-on-primary-container mb-4 text-sm leading-relaxed">Establish your institute as a certified member of the official body.</p>
-                <div className="membership-form-wrap rounded-lg overflow-hidden bg-white shadow-inner">
-                  <iframe
-                    src={MEMBERSHIP_FORM_EMBED_URL}
-                    title="CFA Membership Application"
-                    className="membership-form-embed w-full border-0"
-                    loading="lazy"
-                  />
+              <div id="membership-form" className="membership-form-card bg-primary p-4 sm:p-5 md:p-6 rounded-xl shadow-2xl text-on-primary scroll-mt-24 md:scroll-mt-28">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="material-symbols-outlined text-secondary-fixed text-2xl shrink-0 mt-0.5" aria-hidden="true">edit_document</span>
+                  <div>
+                    <h3 className="font-headline-md text-lg md:text-xl mb-1 font-semibold">Membership Application Form</h3>
+                    <p className="text-on-primary-container text-sm leading-relaxed">
+                      Fill out the form below to apply for CFA membership. You can complete and submit it directly on this page.
+                    </p>
+                  </div>
+                </div>
+                <div className="membership-form-panel rounded-lg overflow-hidden border border-white/15 bg-white shadow-inner">
+                  <div className="membership-form-panel-header flex items-center justify-between gap-3 px-4 py-2.5 bg-surface-container-lowest border-b border-outline-variant/20">
+                    <span className="flex items-center gap-2 text-sm font-semibold text-primary">
+                      <span className="material-symbols-outlined text-base text-secondary" aria-hidden="true">assignment</span>
+                      Application fields
+                    </span>
+                    <span className="text-[11px] uppercase tracking-wider font-semibold text-on-surface-variant">Fill below ↓</span>
+                  </div>
+                  <div className="membership-form-wrap">
+                    <iframe
+                      src={MEMBERSHIP_FORM_EMBED_URL}
+                      title="CFA Membership Application"
+                      className="membership-form-embed w-full border-0"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="membership-form-hint flex items-center justify-center gap-1.5 px-3 py-2 text-[11px] md:text-xs text-on-surface-variant bg-surface-container-lowest border-t border-outline-variant/20">
+                    <span className="material-symbols-outlined text-sm" aria-hidden="true">swipe_vertical</span>
+                    Scroll inside the form to view all questions and submit
+                  </p>
                 </div>
               </div>
             </AnimateIn>

@@ -377,27 +377,32 @@ body {
 }
 
 .membership-form-wrap {
-  height: 380px;
+  height: 400px;
 }
 
 .membership-form-embed {
   display: block;
   width: 100%;
-  height: 380px;
+  height: 400px;
 }
 
 @media (min-width: 640px) {
   .membership-form-wrap,
   .membership-form-embed {
-    height: 440px;
+    height: 460px;
   }
 }
 
 @media (min-width: 1024px) {
   .membership-form-wrap,
   .membership-form-embed {
-    height: 480px;
+    height: 500px;
   }
+}
+
+.membership-form-card:target {
+  outline: 2px solid rgba(254, 210, 85, 0.65);
+  outline-offset: 4px;
 }
 
 .hero-badge {

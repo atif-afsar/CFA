@@ -90,7 +90,7 @@ export default function Navbar() {
               />
             ))}
           </div>
-          <Link className="nav-cta-btn btn-primary shrink-0" to={sectionTo("contact")}>
+          <Link className="nav-cta-btn btn-primary shrink-0" to={sectionTo("membership-form")}>
             Join CFA
           </Link>
         </div>
@@ -128,7 +128,7 @@ export default function Navbar() {
               ))}
               <Link
                 className="mt-3 w-full py-3.5 btn-primary btn-touch rounded-lg font-bold text-sm uppercase tracking-wider text-center"
-                to={sectionTo("contact")}
+                to={sectionTo("membership-form")}
                 onClick={closeMenu}
               >
                 Join CFA
