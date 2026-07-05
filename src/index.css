@@ -376,6 +376,30 @@ body {
   }
 }
 
+.membership-form-wrap {
+  height: 380px;
+}
+
+.membership-form-embed {
+  display: block;
+  width: 100%;
+  height: 380px;
+}
+
+@media (min-width: 640px) {
+  .membership-form-wrap,
+  .membership-form-embed {
+    height: 440px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .membership-form-wrap,
+  .membership-form-embed {
+    height: 480px;
+  }
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;

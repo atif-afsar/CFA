@@ -13,3 +13,6 @@ export const FOOTER_LINKS = [
   { label: "Archive", path: "/archive" },
   { label: "Legal Notice", path: "/legal-notice" },
 ];
+
+export const MEMBERSHIP_FORM_EMBED_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfOcLtlI-KEn1NZxCq8r_CEUzrvsJjJoChaksFCTZ7i4tA5qw/viewform?embedded=true";
